@@ -7,6 +7,11 @@
       "destination": "/api/servidor"
     }
   ],
+  "functions": {
+    "api/servidor.js": {
+      "maxDuration": 30
+    }
+  },
   "env": {
     "NODE_ENV": "production"
   }
