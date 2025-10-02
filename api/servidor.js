@@ -27,7 +27,7 @@ const connectToDatabase = async () => {
   }
 
   try {
-    const mongoUri = process.env.MONGODB_URI || 'mongodb+srv://estebancastaneda34734_db_userd:srUNI2MvNEhX7wLB@cluster0.8hnlkip.mongodb.net/auth_db?retryWrites=true&w=majority&appName=Cluster0';
+    const mongoUri = process.env.MONGODB_URI || 'mongodb+srv://estebancastaneda34734_db_userd:srUNI2MvNEhX7wLB@cluster0.8hnlkip.mongodb.net/web2?retryWrites=true&w=majority&appName=Cluster0';
     
     await mongoose.connect(mongoUri, {
       useNewUrlParser: true,
@@ -48,6 +48,22 @@ app.get('/api', (req, res) => {
     mensaje: 'API funcionando correctamente',
     timestamp: new Date().toISOString(),
     status: 'OK'
+  });
+});
+
+// Ruta raíz con mensaje amigable
+app.get('/', (req, res) => {
+  res.json({ 
+    mensaje: '🚀 Backend de Login ejecutándose correctamente',
+    descripcion: 'API REST para autenticación de usuarios',
+    endpoints: {
+      login: '/api/login',
+      registro: '/api/registro',
+      auth: '/api/auth',
+      logs: '/api/logs'
+    },
+    timestamp: new Date().toISOString(),
+    status: 'ONLINE'
   });
 });
 
