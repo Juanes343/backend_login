@@ -1,24 +1,13 @@
 {
   "version": 2,
   "name": "login-backend",
-  "builds": [
+  "rewrites": [
     {
-      "src": "servidor.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/servidor.js"
+      "source": "/(.*)",
+      "destination": "/api/servidor"
     }
   ],
   "env": {
     "NODE_ENV": "production"
-  },
-  "functions": {
-    "servidor.js": {
-      "maxDuration": 30
-    }
   }
 }
