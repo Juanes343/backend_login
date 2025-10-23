@@ -1,0 +1,82 @@
+[
+  {
+    "nombre": "Laptop HP Pavilion",
+    "descripcion": "Laptop HP Pavilion con procesador Intel Core i5, 8GB RAM, 512GB SSD",
+    "precio": 799.99,
+    "stock": 15,
+    "imagen": "https://via.placeholder.com/300x200?text=Laptop+HP",
+    "categoria": "Computadoras"
+  },
+  {
+    "nombre": "Monitor LG UltraWide",
+    "descripcion": "Monitor LG UltraWide de 29 pulgadas, resolución 2560x1080",
+    "precio": 249.99,
+    "stock": 20,
+    "imagen": "https://via.placeholder.com/300x200?text=Monitor+LG",
+    "categoria": "Monitores"
+  },
+  {
+    "nombre": "Teclado Mecánico Logitech",
+    "descripcion": "Teclado mecánico Logitech G Pro con switches GX Blue",
+    "precio": 129.99,
+    "stock": 30,
+    "imagen": "https://via.placeholder.com/300x200?text=Teclado+Logitech",
+    "categoria": "Periféricos"
+  },
+  {
+    "nombre": "Mouse Gamer Razer",
+    "descripcion": "Mouse gamer Razer DeathAdder V2 con sensor óptico de 20,000 DPI",
+    "precio": 69.99,
+    "stock": 25,
+    "imagen": "https://via.placeholder.com/300x200?text=Mouse+Razer",
+    "categoria": "Periféricos"
+  },
+  {
+    "nombre": "Auriculares Sony WH-1000XM4",
+    "descripcion": "Auriculares inalámbricos Sony con cancelación de ruido",
+    "precio": 349.99,
+    "stock": 10,
+    "imagen": "https://via.placeholder.com/300x200?text=Auriculares+Sony",
+    "categoria": "Audio"
+  },
+  {
+    "nombre": "Tablet Samsung Galaxy Tab S7",
+    "descripcion": "Tablet Samsung Galaxy Tab S7 con pantalla de 11 pulgadas, 128GB",
+    "precio": 649.99,
+    "stock": 8,
+    "imagen": "https://via.placeholder.com/300x200?text=Tablet+Samsung",
+    "categoria": "Tablets"
+  },
+  {
+    "nombre": "Impresora HP LaserJet",
+    "descripcion": "Impresora láser HP LaserJet Pro M404dw monocromática",
+    "precio": 299.99,
+    "stock": 12,
+    "imagen": "https://via.placeholder.com/300x200?text=Impresora+HP",
+    "categoria": "Impresoras"
+  },
+  {
+    "nombre": "Disco Duro Externo Seagate",
+    "descripcion": "Disco duro externo Seagate de 2TB, USB 3.0",
+    "precio": 79.99,
+    "stock": 18,
+    "imagen": "https://via.placeholder.com/300x200?text=Disco+Duro+Seagate",
+    "categoria": "Almacenamiento"
+  },
+  {
+    "nombre": "Router WiFi TP-Link",
+    "descripcion": "Router WiFi TP-Link Archer AX50 AX3000 Dual Band",
+    "precio": 149.99,
+    "stock": 14,
+    "imagen": "https://via.placeholder.com/300x200?text=Router+TP-Link",
+    "categoria": "Redes"
+  },
+  {
+    "nombre": "Cámara Web Logitech C920",
+    "descripcion": "Cámara web Logitech C920 HD Pro, 1080p",
+    "precio": 89.99,
+    "stock": 22,
+    "imagen": "https://via.placeholder.com/300x200?text=Camara+Logitech",
+    "categoria": "Periféricos"
+  }
+]

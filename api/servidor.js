@@ -7,6 +7,8 @@ const registerRoutes = require('../routes/register');
 const loginRoutes = require('../routes/login');
 const authRoutes = require('../routes/auth');
 const logsRoutes = require('../routes/logs');
+const productsRoutes = require('../routes/products');
+const ordersRoutes = require('../routes/orders');
 
 const app = express();
 
@@ -27,18 +29,22 @@ const connectToDatabase = async () => {
   }
 
   try {
-    const mongoUri = process.env.MONGODB_URI || 'mongodb+srv://estebancastaneda34734_db_userd:srUNI2MvNEhX7wLB@cluster0.8hnlkip.mongodb.net/web2?retryWrites=true&w=majority&appName=Cluster0';
+    console.log('Intentando conectar a MongoDB Atlas...');
+    const mongoUri = process.env.MONGODB_URI || 'mongodb+srv://estebancastaneda34734_db_userd:aAXL2Bm3S97hAMAC@cluster0.8hnlkip.mongodb.net/web2?retryWrites=true&w=majority&appName=Cluster0';
     
     await mongoose.connect(mongoUri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 30000, // Aumentar el timeout a 30 segundos
+      socketTimeoutMS: 45000,
     });
     
     isConnected = true;
     console.log('✅ Conectado exitosamente a MongoDB Atlas');
   } catch (error) {
     console.error('❌ Error conectando a MongoDB:', error);
-    throw error;
+    console.warn('⚠️ La aplicación continuará funcionando sin conexión a la base de datos');
+    // No lanzamos el error para que la aplicación continúe funcionando
   }
 };
 
@@ -47,8 +53,21 @@ app.get('/api', (req, res) => {
   res.json({ 
     mensaje: 'API funcionando correctamente',
     timestamp: new Date().toISOString(),
-    status: 'OK'
+    status: 'OK',
+    dbConnected: isConnected,
+    dbStatus: isConnected ? 'conectado' : 'desconectado'
   });
+});
+
+// Middleware para verificar conexión a la base de datos
+app.use((req, res, next) => {
+  if (!isConnected && req.path !== '/api') {
+    return res.status(503).json({
+      mensaje: 'Base de datos no disponible. Por favor, intenta más tarde.',
+      error: 'DATABASE_UNAVAILABLE'
+    });
+  }
+  next();
 });
 
 // Ruta raíz con mensaje amigable
@@ -67,11 +86,13 @@ app.get('/', (req, res) => {
   });
 });
 
-// Usar rutas separadas
+// Usar las rutas importadas
 app.use('/api/registro', registerRoutes);
 app.use('/api/login', loginRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/logs', logsRoutes);
+app.use('/api/productos', productsRoutes);
+app.use('/api/pedidos', ordersRoutes);
 
 // Middleware para manejar rutas no encontradas
 app.use('*', (req, res) => {

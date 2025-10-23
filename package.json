@@ -2,10 +2,10 @@
   "name": "backend-login",
   "version": "1.0.0",
   "description": "Backend simple para login y registro",
-  "main": "servidor.js",
+  "main": "api/servidor.js",
   "scripts": {
-    "start": "node servidor.js",
-    "dev": "nodemon servidor.js"
+    "start": "node api/servidor.js",
+    "dev": "nodemon api/servidor.js"
   },
   "dependencies": {
     "express": "^4.18.2",
